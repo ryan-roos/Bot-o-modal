@@ -1,130 +1,198 @@
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #f4f7fb;
-        margin: 0;
-        padding: 0;
-        color: #1a1a1a;
-    }
 
-    header {
-        background: #0b3d91;
-        color: white;
-        text-align: center;
-        padding: 20px;
-        font-size: 28px;
-        font-weight: bold;
-    }
+        /* Variáveis de cores para alto contraste e fácil leitura */
+        :root {
+            --cor-fundo: #f4f6f8;
+            --cor-texto: #1a1a1a;
+            --cor-primaria: #0056b3; /* Azul escuro */
+            --cor-alerta: #d93025; /* Vermelho forte */
+            --cor-branco: #ffffff;
+            --borda-foco: #ff9900;
+        }
 
-    .subtitulo {
-        text-align: center;
-        font-size: 18px;
-        margin-top: 5px;
-        color: #dbe6ff;
-    }
+        /* Estilos gerais com foco em acessibilidade (Letras grandes) */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            margin: 0;
+            padding: 0;
+            font-size: 1.2rem; /* Letras maiores que o padrão */
+            line-height: 1.6;
+        }
 
-    /* BOTÃO EMERGÊNCIA */
-    .btn-emergencia {
-        display: block;
-        width: 90%;
-        max-width: 400px;
-        margin: 25px auto;
-        background: #d60000;
-        color: white;
-        text-align: center;
-        padding: 18px;
-        font-size: 22px;
-        border-radius: 15px;
-        text-decoration: none;
-        font-weight: bold;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
+        /* Foco acessível para navegação por teclado */
+        a:focus, button:focus {
+            outline: 4px solid var(--borda-foco);
+            outline-offset: 4px;
+        }
 
-    /* CHECKBOX PARA MODAL */
-    #modal-toggle {
-        display: none;
-    }
+        /* Cabeçalho do Aplicativo */
+        header {
+            background-color: var(--cor-primaria);
+            color: var(--cor-branco);
+            padding: 25px 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
 
-    /* FUNDO DO MODAL */
-    .modal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.6);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-    }
+        header h1 {
+            margin: 0 0 15px 0;
+            font-size: 2.2rem;
+        }
 
-    /* MOSTRAR MODAL */
-    #modal-toggle:checked + .modal {
-        display: flex;
-    }
+        header p {
+            font-size: 1.3rem;
+            margin: 0 0 20px 0;
+        }
 
-    .modal-box {
-        background: white;
-        width: 100%;
-        max-width: 400px;
-        border-radius: 15px;
-        padding: 25px;
-        text-align: center;
-    }
+        /* Botão de Emergência (Gatilho do Modal) */
+        .btn-emergencia-principal {
+            display: inline-block;
+            background-color: var(--cor-alerta);
+            color: var(--cor-branco);
+            text-decoration: none;
+            font-size: 1.6rem;
+            font-weight: bold;
+            padding: 15px 30px;
+            border-radius: 12px;
+            border: 3px solid #851610;
+            text-transform: uppercase;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
 
-    .modal-box h2 {
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
+        .btn-emergencia-principal:active {
+            transform: scale(0.95);
+        }
 
-    .btn-opcao {
-        display: block;
-        margin: 15px 0;
-        padding: 15px;
-        font-size: 20px;
-        border-radius: 10px;
-        text-decoration: none;
-        color: white;
-        font-weight: bold;
-    }
+        /* Área principal de conteúdo */
+        main {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
 
-    .policia {
-        background: #0b3d91;
-    }
+        .titulo-secao {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--cor-primaria);
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--cor-primaria);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
 
-    .emergencia {
-        background: #d60000;
-    }
+        .centralizar {
+            text-align: center;
+        }
 
-    .fechar {
-        display: inline-block;
-        margin-top: 10px;
-        font-size: 18px;
-        color: #333;
-        cursor: pointer;
-        text-decoration: underline;
-    }
+        /* Cartões de Dicas */
+        .dica-card {
+            background-color: var(--cor-branco);
+            border: 3px solid #cce0ff;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
 
-    /* DICAS */
-    .container {
-        padding: 20px;
-        max-width: 700px;
-        margin: auto;
-    }
+        .dica-card h2 {
+            color: var(--cor-primaria);
+            font-size: 1.8rem;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    .card {
-        background: white;
-        padding: 18px;
-        margin-bottom: 15px;
-        border-left: 8px solid #0b3d91;
-        border-radius: 10px;
-        font-size: 18px;
-    }
+        .dica-card p {
+            font-size: 1.4rem;
+            margin-bottom: 0;
+        }
 
-    .card h3 {
-        margin: 0 0 8px 0;
-        font-size: 20px;
-        color: #0b3d91;
-    }
-</style>
+        .icone {
+            font-size: 2.2rem;
+        }
+
+        /* * MODAL DE EMERGÊNCIA USANDO APENAS CSS 
+         * Usa a pseudo-classe :target para mostrar o modal quando a URL termina com #modal-emergencia
+         */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); /* Fundo bem escuro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            /* Esconde o modal por padrão */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        /* Mostra o modal quando ele for o "alvo" do link clicado */
+        .modal:target {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-conteudo {
+            background-color: var(--cor-branco);
+            width: 90%;
+            max-width: 450px;
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 5px solid var(--cor-alerta);
+        }
+
+        .modal-conteudo h2 {
+            color: var(--cor-alerta);
+            font-size: 2.2rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        /* Botões dentro do modal */
+        .btn-modal {
+            display: block;
+            width: 100%;
+            padding: 20px 10px;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 10px;
+            box-sizing: border-box;
+            color: var(--cor-branco);
+        }
+
+        .btn-policia {
+            background-color: var(--cor-alerta);
+            border: 2px solid #851610;
+        }
+
+        .btn-familiar {
+            background-color: #00732e; /* Verde forte */
+            border: 2px solid #004d1f;
+        }
+
+        .btn-fechar {
+            background-color: #555555;
+            border: 2px solid #333333;
+            margin-bottom: 0;
+            margin-top: 30px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #e0e0e0;
+            font-size: 1.1rem;
+            margin-top: 40px;
+        }

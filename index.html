@@ -1,66 +1,78 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guia de Segurança Digital</title>
-
-
-</head>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Seguro - Dicas de Segurança Digital</title>
+    </head>
 <body>
 
-<header>
-    Guia de Segurança Digital
-    <div class="subtitulo">Proteja-se e navegue com tranquilidade</div>
-</header>
-
-<!-- BOTÃO EMERGÊNCIA -->
-<label for="modal-toggle" class="btn-emergencia">
-    🚨 PRECISO DE AJUDA AGORA
-</label>
-
-<!-- CHECKBOX -->
-<input type="checkbox" id="modal-toggle">
-
-<!-- MODAL -->
-<div class="modal">
-    <div class="modal-box">
-        <h2>Ajuda de Emergência</h2>
-
-        <a class="btn-opcao policia" href="tel:190">
-            📞 Ligar para a Polícia
+    <!-- Cabeçalho com o botão de emergência -->
+    <header>
+        <h1>🛡️ Guia Seguro</h1>
+        <p>Aprenda a se proteger na internet de forma fácil.</p>
+        
+        <!-- Este link ativa o modal apontando para o ID dele -->
+        <a href="#modal-emergencia" class="btn-emergencia-principal">
+            🚨 Botão de Emergência
         </a>
+    </header>
 
-        <a class="btn-opcao emergencia" href="tel:000000000">
-            👨‍👩‍👧 Contato de Emergência
-        </a>
+    <!-- Conteúdo Principal - Dicas -->
+    <main>
+        <div class="centralizar">
+            <h2 class="titulo-secao">Dicas de Segurança</h2>
+        </div>
 
-        <label for="modal-toggle" class="fechar">
-            Fechar
-        </label>
+        <article class="dica-card">
+            <h2><span class="icone">📱</span> 1. Cuidado no WhatsApp</h2>
+            <p>Nunca envie dinheiro para parentes que mandam mensagens de um número desconhecido pedindo ajuda urgente. Ligue para a pessoa no número antigo dela para confirmar.</p>
+        </article>
+
+        <article class="dica-card">
+            <h2><span class="icone">🔑</span> 2. Senhas e Códigos</h2>
+            <p>Bancos e empresas nunca pedem sua senha por telefone ou WhatsApp. Nunca compartilhe o código de 6 números que chega por SMS (mensagem de texto).</p>
+        </article>
+
+        <article class="dica-card">
+            <h2><span class="icone">🎁</span> 3. Promoções Falsas</h2>
+            <p>Se você receber uma oferta de um produto muito barato ou um prêmio que você não se inscreveu para ganhar, desconfie! Geralmente, é um golpe. Não clique em links estranhos.</p>
+        </article>
+
+        <article class="dica-card">
+            <h2><span class="icone">🗣️</span> 4. Na Dúvida, Pergunte!</h2>
+            <p>Antes de clicar, baixar um aplicativo ou pagar um boleto que você não conhece, peça ajuda para um filho, neto ou alguém de sua total confiança.</p>
+        </article>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>Criado para proteger quem amamos. Sempre consulte um familiar em caso de dúvida.</p>
+    </footer>
+
+    <!-- 
+        MODAL DE EMERGÊNCIA 
+        O id "modal-emergencia" é o que faz o CSS :target funcionar.
+    -->
+    <div id="modal-emergencia" class="modal">
+        <div class="modal-conteudo">
+            <h2>O que você precisa?</h2>
+            
+            <!-- Link para discar automaticamente para a polícia (Funciona em celulares) -->
+            <a href="tel:190" class="btn-modal btn-policia">
+                🚓 Ligar para Polícia (190)
+            </a>
+            
+            <!-- Link para discar para um contato (O número precisa ser substituído pelo real) -->
+            <a href="tel:+5500000000000" class="btn-modal btn-familiar">
+                📞 Ligar para um Familiar
+            </a>
+            
+            <!-- Link apontando para "#" para fechar o modal, saindo do alvo -->
+            <a href="#" class="btn-modal btn-fechar">
+                ❌ Voltar para o App
+            </a>
+        </div>
     </div>
-</div>
-
-<!-- DICAS -->
-<div class="container">
-
-    <div class="card">
-        <h3>1. Use senhas longas</h3>
-        Prefira frases fáceis de lembrar em vez de números curtos.
-    </div>
-
-    <div class="card">
-        <h3>2. Desconfie de urgência</h3>
-        Se pedirem dinheiro rápido, pare e confirme antes.
-    </div>
-
-    <div class="card">
-        <h3>3. Não clique em tudo</h3>
-        Links suspeitos podem ser golpes.
-    </div>
-
-</div>
 
 </body>
-</html>
